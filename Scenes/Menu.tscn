@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwem20ch8wp0m"]
+
+[ext_resource type="FontFile" uid="uid://c20r4im1s47ai" path="res://Assets/Retro Gaming.ttf" id="1_1156l"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_duwky"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u84l3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcite"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1m6v5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sc5v"]
+bg_color = Color(0.838391, 0.0362631, 0, 1)
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_duwky")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u84l3")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -565.0
+offset_top = -267.0
+offset_right = 567.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.104368, 0.19888, 1)
+theme_override_fonts/font = ExtResource("1_1156l")
+theme_override_font_sizes/font_size = 80
+text = "CARRERA CONTRA 
+EL TIEMPO"
+horizontal_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 460.0
+offset_top = 341.0
+offset_right = 700.0
+offset_bottom = 442.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="BoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1156l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xcite")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1m6v5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sc5v")
+text = " INICIAR "
+
+[node name="HTPButton" type="Button" parent="BoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1156l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xcite")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1m6v5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sc5v")
+text = " CÓMO JUGAR "
+
+[connection signal="pressed" from="BoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/HTPButton" to="." method="_on_htp_button_pressed"]
